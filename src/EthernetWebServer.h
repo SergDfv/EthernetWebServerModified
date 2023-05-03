@@ -493,27 +493,27 @@ class EthernetWebServer
     HTTPClientStatus  _currentStatus;
     unsigned long     _statusChange;
 
-    ethernetRequestHandler*   _currentHandler;
-    ethernetRequestHandler*   _firstHandler;
-    ethernetRequestHandler*   _lastHandler;
+    ethernetRequestHandler*   _currentHandler = nullptr;
+    ethernetRequestHandler*   _firstHandler = nullptr;
+    ethernetRequestHandler*   _lastHandler = nullptr;
     THandlerFunction  _notFoundHandler;
     THandlerFunction  _fileUploadHandler;
 
     int               _currentArgCount;
-    RequestArgument*  _currentArgs;
+    RequestArgument*  _currentArgs = nullptr;
     
     //KH
     #if USE_NEW_WEBSERVER_VERSION
-    ethernetHTTPUpload*   _currentUpload;
+    ethernetHTTPUpload*   _currentUpload = nullptr;
     int                   _postArgsLen;
-    RequestArgument*      _postArgs;
+    RequestArgument*      _postArgs = nullptr;
     
     #else
     ethernetHTTPUpload    _currentUpload;
     #endif
     
     int               _headerKeysCount;
-    RequestArgument*  _currentHeaders;
+    RequestArgument*  _currentHeaders = nullptr;
     size_t            _contentLength;
     String            _responseHeaders;
 
