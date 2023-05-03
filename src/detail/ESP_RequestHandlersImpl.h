@@ -199,7 +199,9 @@ public:
 
         server.sendHeader("ETag", etag);
 
-        server.streamFile(f, mime_esp::getContentType(SRH::_path), requestMethod);
+        String path_without_gz = SRH::_path;
+        path_without_gz.replace(".gz","");
+        server.streamFile(f, mime_esp::getContentType(path_without_gz), requestMethod);
         return true;
     }
 
